@@ -1,0 +1,634 @@
+ """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ " $ID: .vimrc        Mon Sep 30 06:06:08 CST 2002  noclouds $ "
+ "                                                             "
+ " Description:                                                "
+ "                                                             "
+ " Author:      ∑∂√¿ª‘(MeiHui FAN) <mhfan@ustc.edu>            "
+ "                                                             "
+ " Maintainer:  M.H.Fan  <mhfan@ustc.edu>                      "
+ "              School of Life Science                         "
+ "              Uni. of Sci. & Tec. of China (USTC) 	       "
+ "              People's Republic of China (PRC)               "
+ "                                                             "
+ " CopyLeft (c) 2003 M.H.Fan                                   "
+ "    All rights reserved.                                     "
+ "                                                             "
+ " This file is free software;                                 "
+ "   you are free to modify and/or redistribute it    	       "
+ "   under the terms of the GNU General Public Licence.        "
+ " No warranty, no liability; use this at your own risk!       "
+ "                                                             "
+ " Last modified: ŒÂ, 11  6‘¬ 2010 21:44:39 +0800      by mhfan #
+ """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if exists("*Lcpp") | finish | endif
+
+" how to use small keyboard ???
+
+"language C "zh_CN.GB2312, C
+"language messages zh_CN.GB2312 "C
+"language ctype zh_CN "C zh_CN.GBK
+
+"set nocompatible	" Use Vim settings, rather then Vi settings
+			" (much better!). This must be first, because it
+			" changes other options as a side effect!
+set encoding=prc	" chinese
+set viminfo=%,'64,\"128,:128,n~/.vim/viminfo
+"set viminfo='20,\"50	" (vi) read/write a .viminfo file,
+			"   don't store more than 50 lines of registers
+"set ch=2		" Make command line two lines high
+set wrap		" no wrap ???
+set ruler		" Show the position of the cursor.
+set pastetoggle=<F11>
+"set paste		" it will reset tw wm ai si cin sts lisp
+			" ru revins sm fo!
+"set mouse=a            "
+set virtualedit=block	" all, insert
+set showcmd
+set history=32
+"set columns=80		" (co)
+set comments=sr:/*,mb:*,ex:*/,b://,b:#,:%,b:XCOMM,n:>,fb:-,b:\" 
+set complete+=k,s
+"set iskeyword+=-           " ∫‹∂‡”Ô—‘÷–“—æ≠‘ –Ì π”√÷–ªÆœﬂ◊˜±‰¡ø√˚¡À°£
+set nobackup		" Some option desactivate by default.
+set hlsearch		" (hls)
+set incsearch
+set cscopetag           " ???
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+set display=		"lastline,uhex
+"set linebreak
+set showbreak=+>>>
+set switchbuf=useopen
+set showmatch		" Show matching parenthese.
+set backspace=2		" Default backspace like normal
+set textwidth=78	" Terminal for 80 char so vim can play 79.
+"set expandtab		" %!expand -t 4 
+			" to replace a <tab> with 4 spaces
+set laststatus=0	" Display a status-bar.
+set statusline=\"%F\"%=%c\%V,%l/%L\ %P	" Set a statusbar
+set ignorecase
+set autoindent
+set smartindent
+set shiftround
+"set clipboard="autoselect" ",exclude:cons\|linux"
+set background=dark
+set shiftwidth=4
+"set dictionary=/usr/share/dict/words
+set grepprg=grep\ -nH\ $*   " Set grep to alway generate a file-name.
+set softtabstop=4       " it must place back of paste!
+set diffopt=filler,iwhite   " ignore white-space in vimdiff
+
+let debianfullname="MeiHui FAN"
+let debianemail="mhfan@ustc.edu"
+
+let c_comment_strings=1 " I like highlighting strings inside C comments
+
+"if &term =~ "xterm"
+"  if has("terminfo")
+"    set t_Co=8
+"    set t_Sf=[3%p1%dm
+"    set t_Sb=[4%p1%dm
+"  else
+"    set t_Co=8
+"    set t_Sf=[3%dm
+"    set t_Sb=[4%dm
+"  endif
+"endif
+
+"let &guioptions = substitute(&guioptions, "t", "", "g")
+			" For Win32 GUI: remove 't' flag from 'guioptions':
+				" no tearoff menu entries
+				
+map   Q		gq		" Don't use Ex mode, use Q for formatting
+map   ;		:
+"map  g		:%
+"map  v		~
+map  <F1>	:help
+map  <F2>	a<C-R>=strftime("%a, %d %b %Y %H:%M:%S %z")<CR><CR><Esc>
+				" RFC822-conformant DATEs
+map  <F5>	:bp<C-M>	" Some macros to manage the buffer of vim
+map  <F6>	:bn<C-M>	" 
+map  <F7>	:bd<C-M>	" 
+nnoremap <silent> <F8> :Tlist<CR>
+"map  <F10>	:set paste<CR>
+"map  <F11>	:set nopaste<CR>
+map  <Space>	<C-D>
+map  <C-Tab>	<C-W>w		" I know it's horrible for a vi master
+cmap <C-Tab>	<C-C><C-Tab>	" but useful for newbies.
+imap <C-Tab>	<C-O><C-W>w	" 
+"imap <C-a>	<Esc>I		" 
+"imap <C-e>	<ESC>A		" 
+"imap <C-k>	<Up>
+"imap <C-j>	<Down>
+"imap <C-h>	<Left>
+"imap <C-l>	<Right>
+"imap [4~	A		" work around a bug in some key-maping
+"nmap [4~	$		" if your 'End' key doesn't work,uncomment
+				" these two lines.
+				" Fast switching between buffers
+map  <silent> <s-tab>		:if &modifiable && !&readonly && &modified 
+				\ <cr> :w<cr> :endif<cr> :bp<cr> 
+imap <silent> <s-tab> <Esc>	:if &modifiable && !&readonly && &modified 
+				\ <cr> :w<cr> :endif<cr> :bp<cr> 
+
+				" visual select and search
+vmap / y/\V<C-R>=substitute(escape(@",'/'),"\n","\\\\n","g")<CR>/<CR> 
+vmap ? y?\V<C-R>=substitute(escape(@",'?'),"\n","\\\\n","g")<CR><CR>
+
+nmap <C-q> 	:wqa<CR>
+
+abbr	_lab_	    Laboratory of Structural Biology
+abbr	_lsci_	    School of Life Science
+abbr	_ustc_	    University of Science and Technology of China (USTC)
+abbr	_prc_	    People's Republic of China (PRC)
+abbr	_web_	    http://biox.ustc.edu.cn/~mhfan
+abbr	_box_	    Addr:  Room 4-438, P.O. Box 4
+abbr	_tel_	    Phone: (+86-)0551-3663380	    
+abbr	_qq_	    OICQ: 10181245
+abbr	_msn_	    MSN:  gnufan@hotmail.com
+abbr	zhhome	    <C-R>="    µÁª∞£∫(+86-)599-3591011\r" .
+			\ "µÿ÷∑£∫∏£Ω® °Ω®Í± –∂´∑Â’Úª∑’Ú¬∑114∫≈ (353121)"<CR>
+abbr	enhome	    <C-R>="    Phone:  (+86-)599-3591011\r" .
+			\ "Addr:   Road Huanzhen, P.O. Box 114\r" .
+			\ "        Dongfeng, Jian'ou, Fujian\r" .
+			\ "        353121, P.R.China"<CR> 
+abbr	zhaddr	    <C-R>="    µÁª∞£∫  0551-3663380\r" .
+			\ "E-mail: <mhfan@ustc.edu>\r" .
+			\ "µÿ÷∑£∫  ∞≤ª’ °∫œ∑  –Àƒ∫≈–≈œ‰\r" .
+			\ "        ÷–π˙ø∆—ßºº ı¥Û—ß" .
+			\ "Œ˜«¯4∫≈¬•438 “ (230027)"<CR>
+abbr	enaddr	    <C-R>="    Phone:  (86-)551-3663380\r" .
+			\ "E-mail: <mhfan@ustc.edu>\r" .
+			\ "Addr:   Room 4-438, P.O. Box 4\r" .
+			\ "        Laboratory of Structural Biology\r" .
+			\ "School of Life Science\r" .
+			\ "University of Sci. & Tech. of China (USTC)\r" .
+			\ "Hefei, Anhui\r230027 P.R.China"<CR>
+
+abbr	_myid_	    noclouds
+abbr	_user_	    <C-R>=$USER<CR>
+abbr	_fmh_	    ∑∂√¿ª‘ 
+abbr	_mhfan_	    MeiHui FAN
+abbr	_email_	    mhfan@ustc.edu
+abbr	_auth_	    ∑∂√¿ª‘(MeiHui FAN)  <mhfan@ustc.edu>
+abbr	_copy_	    CopyLeft (C) <C-R>=strftime("%Y")<CR>  M.H.Fan
+abbr	_create_    Created by mhfan
+abbr	_change_    Changed by mhfan
+abbr	_add_	    Added by mhfan
+abbr	_modify_    Modified by mhfan
+abbr	_hhmod_	    Modified by HHTech
+
+abbr	_file_	    <C-R>%
+abbr	_date_	    <C-R>=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>
+
+cab	unix	    set ff=unix
+iab	RCHG	    <C-R>=strftime("* %a, %d %b %Y %H:%M:%S %z 
+		    \  MeiHui FAN  <mhfan@ustc.edu> \ \n- \n- ")<CR>
+
+" To be able to use another command anyway, use the ":execute" command.
+" Example (append the output of "ls" and jump to the first line):
+"       :execute 'r !ls' | '[
+vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
+                        " Make p in Visual mode replace the selected text with
+                        " the "" register.
+
+"if has("mouse_gpm") && filereadable("/usr/share/vim/syntax/syntax.vim")
+"if has("syntax") && &t_Co > 2 || has("gui_running") ???
+  syntax on		" Syntax highlighting only for enhanced-vi
+  highlight Comment cterm=NONE
+  filetype plugin indent on
+
+"endif
+
+""" user defined function/command
+command -range=% Ln :call LN(<line1>, <line2>)    " usr_40.txt
+func LN(l1, l2)
+    let l1 = a:l1
+    let n = a:l2 - l1
+    let l = strlen(n)
+    let i = 0
+    while i <= n
+        let i  = i  + 1
+        let space = strpart("        ", 0, l - strlen(i))
+        exec l1 . "," . l1 . "s/^/" . space . i . " /"
+        let l1 = l1 + 1
+    endw
+endf
+
+"if has("autocmd")
+  autocmd BufRead   *		set fo=2croqlv wm=1 comments&
+  autocmd BufRead   *.def	set ft=conf
+  autocmd BufRead   *.ld	set ft=c
+  autocmd BufRead   .letter	set tw=72 fo=2tcrq
+  autocmd BufEnter  .letter	set dict=/usr/lib/dict/words
+  autocmd BufLeave  .letter	set dict=
+  autocmd BufEnter  ?akefile*	set include=^s\=include
+  autocmd BufLeave  ?akefile*	set include&
+  autocmd BufRead   *.tex	let  g:Tex_GotoError = 0
+  autocmd BufRead   *.tex	set fo=2tcroqwanmvM1 iskeyword+=:
+					\ sw=2 wm=1 comments&
+  "autocmd BufRead *.sgml,*.tex  set fo=2tcroqwanmvM1 wm=1 comments&
+  "autocmd BufRead *.fmh,*.txt   set fo=2tcroqwanmvM1 wm=1 comments&
+  autocmd BufRead *.fmh		set ft=c
+  autocmd BufNewFile *.hs,*.lhs	    call Lhs()
+  autocmd BufNewFile *.sh	    call Lsh("\\/bin\\/bash")
+  autocmd BufNewFile *.scm	    call Lsh("\\/home\\/mhfan\\/bin\\/scsh"
+	\ . " !#") | exec "2,26g/#/s//;/g" | exec "$g/#/s//;/g"
+  autocmd BufNewFile *.pl	    call Lsh("\\/usr\\/bin\\/perl -w")
+  "autocmd BufNewFile *.sgml	    0r $HOME/doc/sgml/skel.sgml
+  "autocmd BufNewFile *.vhd,*.vhdl   0r $HOME/doc/vhdl/skel.vhdl
+  "autocmd BufNewFile *.tex	    0r $HOME/doc/comp/lang/tex/skel.tex
+  "autocmd BufNewFile *.pl,*.sh	    0r ~/.vim/skeleton.pl
+  "autocmd BufNewFile *.c,*.cpp,*.h 0r ~/.vim/skeleton.cpp
+  "autocmd BufNewFile *.java	    0r ~/.vim/skeleton.java
+
+  func Lhs()
+    let fn = strpart(@%, strridx(@%, "/") + 1)
+    let interpre = "\\/usr\\/bin\\/runhugs"
+    let rspace = "                             "
+    execute "1g/^/s//#!" . interpre . "\r" .
+	\"{----------------------------------------------------------------\r" .
+	\" - $ID: " . fn . strpart(rspace, 0, 19-strlen(fn)-strlen($USER))     .
+	\	       strftime(" %a, %d %b %Y %H:%M:%S %z  ") . $USER "$ -\r" .
+	\" -                                                              -\r" .
+	\" - Description:                                                 -\r" .
+	\" -                                                              -\r" .
+	\" - Maintainer:  ∑∂√¿ª‘(MeiHui FAN)  <mhfan@ustc.edu>            -\r" .
+	\" -                                                              -\r" .
+	\" - CopyLeft (c)". strftime("  %Y  ") ."M.H.Fan    ". rspace . " -\r" .
+	\" -   All rights reserved.                                       -\r" .
+	\" -                                                              -\r" .
+	\" - This file is free software;                                  -\r" .
+	\" -   you are free to modify and\\/or redistribute it  \t        -\r" .
+	\" -   under the terms of the GNU General Public Licence (GPL).   -\r" .
+	\" -                                                              -\r" .
+	\" - Last modified:                                               -\r" .
+	\" ----------------------------------------------------------------}\r"
+	"\ - Copyright (C)". strftime("  %Y  ") ."HHTech    ". rspace . " -\r" .
+	"\ -   www.hhcn.com, www.hhcn.org                                 -\r" .
+	"substitute("", "#", "*", "g")
+	"\ -                                                              -\r" .
+	"\ - Maintainer:  MeiHui FAN  <mhfan@ustc.edu>                    -\r" .
+	"\ -              Laboratory of Structural Biology                -\r" .
+	"\ -              School of Life Science                          -\r" .
+	"\ -              Univ. of Sci.\\& Tech. of China (USTC)\t        -\r" .
+	"\ -              People's Republic of China (PRC)                -\r" .
+	"\ - No warranty, no liability; use this at your own risk!        -\r" .
+	"\ -                                                              -\r" .
+    let rspace = " -----------------------------"
+	execute "$g/$/s//\r\r{" . strpart(rspace, 1, 26-strlen(fn)/2) .
+	\ " End Of File: " . fn . strpart(rspace, 0, 25-strlen(fn)/2) . "}"
+	\ "\r -- vim:sts=4:ts=8:"
+  endfun
+
+  func Lsh(...)
+    if a:0==0
+	let interpre = "\\/bin\\/bash"
+    else
+	let interpre = a:1
+    endif
+    let fn = strpart(@%, strridx(@%, "/") + 1)
+    let rspace = "                             "
+    execute "1g/^/s//#!" . interpre . "\r" .
+	\" ################################################################\r" .
+	\" # $ID: " . fn . strpart(rspace, 0, 19-strlen(fn)-strlen($USER))     .
+	\	       strftime(" %a, %d %b %Y %H:%M:%S %z  ") . $USER "$ #\r" .
+	\" #                                                              #\r" .
+	\" # Description:                                                 #\r" .
+	\" #                                                              #\r" .
+	\" # Maintainer:  ∑∂√¿ª‘(MeiHui FAN)  <mhfan@ustc.edu>            #\r" .
+	\" #                                                              #\r" .
+	\" # CopyLeft (c)". strftime("  %Y  ") ."M.H.Fan    ". rspace . " #\r" .
+	\" #   All rights reserved.                                       #\r" .
+	\" #                                                              #\r" .
+	\" # This file is free software;                                  #\r" .
+	\" #   you are free to modify and\\/or redistribute it  \t        #\r" .
+	\" #   under the terms of the GNU General Public Licence (GPL).   #\r" .
+	\" #                                                              #\r" .
+	\" # Last modified:                                               #\r" .
+	\" ################################################################\r\r"
+	"substitute("", "#", "*", "g")
+	"\" #                                                             #\r" .
+	"\" # Maintainer:  MeiHui FAN  <mhfan@ustc.edu>                   #\r" .
+	"\" #              Laboratory of Structural Biology               #\r" .
+	"\" #              School of Life Science                         #\r" .
+	"\" #              Univ. of Sci.\\& Tech. of China (USTC)\t       #\r" .
+	"\" #              People's Republic of China (PRC)               #\r" .
+	"\" # No warranty, no liability; use this at your own risk!       #\r" .
+	"\" #                                                             #\r" .
+    let rspace = " #############################"
+	execute "$g/$/s//\r\r" . strpart(rspace, 0, 25-strlen(fn)/2) .
+	\ " End Of File: " . fn . strpart(rspace, 0, 25-strlen(fn)/2) .
+	\ "\r # vim:sts=4:ts=8:"
+  endfun
+  func Lpl()
+      call Lsh("\\/usr\\/bin\\/perl -w")
+  endfun
+
+  autocmd BufWritePre,FileWritePre *	call LastMod()
+  "autocmd BufLeave,BufDelete *	call LastMod()
+    " You need to have a line "Last modified: <date time>" in the first 20
+    " lines of the file for this to work.  Vim replaces <date time> (and
+    " anything in the same line after it) with the current date and time.
+    "
+    " Explanation:
+    "         ms              mark current position with mark 's'
+    "         call LastMod()  call the LastMod() function to do the work
+    "         `s              return the cursor to the old position
+    "
+    " The LastMod() function checks if the file is shorter than 20 lines,
+    " and then  uses the ":g" command to find lines that contain
+    " "Last modified: ". For those lines the ":s" command is executed to
+    " replace the existing date with the current one.  The ":execute" command
+    " is used to be able to use an expression for the ":g" and ":s" commands.
+    " The date is obtained with the strftime() function.  You can change its
+    " argument to get another date  string.
+    "
+  fun LastMod()
+    if line("$") > 32
+      let l = 32
+    else
+      let l = line("$")
+    endif
+    let wsp = "                             "
+    let str = strftime("%a, %d %b %Y %H:%M:%S %z")
+    exec "normal ms"
+    exec "1," . l . "g/Last modified:/s/Last modified:.*/Last modified: " .
+	    \ str . strpart(wsp, 1, 42-strlen(str)-strlen($USER))
+	    \ . "by " . $USER . " #"
+    exec "normal `s"
+  endfun
+
+  func SN(l1, l2, pat)
+      let n = 1
+      exec a:l1
+      while search(a:pat, "W") > 0 && line(".") < a:l2
+	  exec "s/" . a:pat . "/" . n . "/"
+	  let n = n + 1
+      endw
+  endf
+
+  "au! CursorHold *.[ch] nested exe "silent! ptag " . expand("<cword>")
+  "au! CursorHold *.[ch] nested call PreviewWord()
+  func PreviewWord()
+    if &previewwindow			" don't do this in the preview window
+      return
+    endif
+    let w = expand("<cword>")		" get the word under cursor
+    if w != ""				" if there is one ":ptag" to it
+  
+      " Delete any existing highlight before showing another tag
+      silent! wincmd P			" jump to preview window
+      if &previewwindow			" if we really get there...
+        match none			" delete existing highlight
+        wincmd p			" back to old window
+      endif
+  
+      " Try displaying a matching tag for the word under the cursor
+      let v:errmsg = ""
+      exe "silent! ptag " . w
+      if v:errmsg =~ "tag not found"
+        return
+      endif
+  
+      silent! wincmd P			" jump to preview window
+      if &previewwindow		" if we really get there...
+  	 if has("folding")
+  	   silent! .foldopen		" don't want a closed fold
+  	 endif
+  	 call search("$", "b")		" to end of previous line
+  	 let w = substitute(w, '\\', '\\\\', "")
+  	 call search('\<\V' . w . '\>')	" position cursor on match
+  	 " Add a match highlight to the word at this position
+        hi previewWord term=bold ctermbg=green guibg=green
+  	 exe 'match previewWord "\%' . line(".") . 'l\%' . col(".") . 'c\k*"'
+        wincmd p			" back to old window
+      endif
+    endif
+  endfun
+
+augroup cprog		" Set some sensible defaults for editing C-files
+			" Remove all cprog autocommands
+  au!
+  " When starting to edit a file:
+  "   For *.c and *.h files set formatting of comments and set C-indenting on.
+  "   For other files switch it off.
+  "   Don't change the order, it's important that the line with * comes first.
+  "autocmd BufRead *.cpp,*.c,*.h 1;/^{
+  autocmd BufRead *.C,*.cc,*.cxx,*.hpp,*.cpp,*.c,*.h 
+	\ set formatoptions=croql cindent "comments=sr:/*,mb:*,el:*/,://
+  autocmd BufNewFile *.c,*.C,*.cc,*.cpp,*.cxx,*.h,*.hpp  call Lcpp()
+  autocmd BufEnter *.C,*.cc,*.cxx,*.hpp,*.cpp,*.c,*.h abbr _debug
+	\ #if 1   /* defined by mhfan */<CR>
+	\#include <stdio.h><CR><CR>
+	\#define dtrace do { fprintf(stderr, "\033[36mTRACE"       \<CR>
+	\				"\033[1;34m==>\033[33m%16s"       \<CR>
+	\				"\033[36m: \033[32m%4d\033[36m: " \<CR>
+	\				"\033[35m%-24s \033[34m"          \<CR>
+	\				"[\033[0;37m%s\033[1;34m,"        \<CR>
+	\				" \033[0;36m%s\033[1;34m]"        \<CR>
+	\				"\033[0m\n", __FILE__, __LINE__,  \<CR>
+	\				__func__, __TIME__, __DATE__);    \<CR>
+	\			    if (errno < 0) perror("Errmsg");	  \<CR>
+	\			} while (0)<CR><CR>
+	\#define dprintp(a,n) do { int i_, m_ = sizeof((a)[0]);        \<CR>
+	\	fprintf(stderr, "\033[33m" #a ": \033[36m"		  \<CR>
+	\		"%p\033[0m ==> %x\n", a, n);			  \<CR>
+	\		m_ = (m_ < 2 ? 24 : (m_ < 4 ? 16 : 8));		  \<CR>
+	\		for (i_ = 0; i_ < n; ) {			  \<CR>
+	\		    int j_ = (n < i_+m_ ? n-i_ : m_);		  \<CR>
+	\		    for (; j_--; ++i_)				  \<CR>
+	\			if (m_ > 16) fprintf(stderr,		  \<CR>
+	\				"%02x ", (a)[i_]); else		  \<CR>
+	\			if (m_ > 8) fprintf(stderr,		  \<CR>
+	\				"%04x ", (a)[i_]); else		  \<CR>
+	\			fprintf(stderr, "%08x ", (a)[i_]);	  \<CR>
+	\		    fprintf(stderr, "\n"); }			  \<CR>
+	\	} while (0)<CR><CR>
+	\#define dprintn(a) do { fprintf(stderr, "\033[33m" #a     \<CR>
+	\				": \033[36m%#x, %d, %g\033[0m\n"  \<CR>
+	\				, a, a, a);                       \<CR>
+	\			} while (0)<CR><CR>
+	\#define dprints(a) do { fprintf(stderr, "\033[33m" #a     \<CR>
+	\				": \033[36m%s\033[0m\n", a);      \<CR>
+	\			} while (0)<CR>
+	\#endif  /* defined by mhfan */<CR>
+  "autocmd BufLeave *.C,*.cc,*.cxx,*.hpp,*.cpp,*.c,*.h unabbr _debug
+
+  command -range Cf :call CONF(<line1>, <line2>)    " usr_40.txt
+  func CONF(l1, l2)	" s/^\S*\(\s*--\S\+\).*$/\1 \\/
+    let l = a:l1
+    while l <= a:l2
+      exec l . "s/^\\S*\\(\\s*--\\S\\+\\).*$/\\1 \\\\/"
+      let l = l + 1
+    endw
+  endf
+
+  command Dc :call DCOMM()
+  func DCOMM()	" delete the block comment macro lines.
+    exec "normal 1l"
+    let l1 = searchpair('^\s*#\s*if\s\+\d\+', '', '^\s*#\s*endif', 'Wb')
+    if l1 < 1
+	return
+    endif
+    exec "normal ]#"
+    if getline(".") =~ '^\s*#\s*else'
+	return
+    endif
+    exec "normal dd" . l1 . "Gdd"
+  endf
+
+  command Rc :call RCOMM()
+  func RCOMM()	" reverse the block comment.
+    exec "normal 1l"
+    if searchpair('^\s*#\s*if\s\+\d\+', '', '^\s*#\s*enif', 'Wb') < 1
+	return
+    endif
+    exec '.s#\d\+#\=submatch(0)==0 ? 1 : 0#'
+  endf
+
+  command -range Co :call  COMM(<line1>, <line2>)
+  func COMM(l1, l2) " add the MACRO comment around the block of C/Cpp code.
+      exec a:l2+1 . "s%^%#endif	/* comment by mhfan */\<CR>%"
+      exec a:l1 . "s%^%#if 0 	/* comment by mhfan */\<CR>%"
+  endf
+
+  func Lcpp()
+    let fn = strpart(@%, strridx(@%, "/") + 1)
+    if strridx(fn,"\.h") > 0
+	let defn = substitute(toupper(fn), "\\.", "_", "")
+	let defh = "#ifndef " . defn . "\r#define " . defn . "\r"
+	let tccl = ""
+    else
+	let defh = "\r"
+	let tccl = "\\/\\/#!\\/usr\\/bin\\/tcc -run\r"
+    endif
+    let rspace = "                             "
+    execute "1g/^/s//" . tccl .
+	\"\\/****************************************************************" .
+	\"\r * $ID: " . fn . strpart(rspace, 0, 19-strlen(fn)-strlen($USER))   .
+	\	       strftime(" %a, %d %b %Y %H:%M:%S %z  ") . $USER "$ *\r" .
+	\" *                                                              *\r" .
+	\" * Description:                                                 *\r" .
+	\" *                                                              *\r" .
+	\" * Maintainer:  ∑∂√¿ª‘(MeiHui FAN)  <mhfan@ustc.edu>            *\r" .
+	\" *                                                              *\r" .
+	\" * CopyLeft (c)". strftime("  %Y  ") ."M.H.Fan    ". rspace . " *\r" .
+	\" *   All rights reserved.                                       *\r" .
+	\" *                                                              *\r" .
+	\" * This file is free software;                                  *\r" .
+	\' *   you are free to modify and\/or redistribute it   \t        *\r' .
+	\" *   under the terms of the GNU General Public Licence (GPL).   *\r" .
+	\" *                                                              *\r" .
+	\" * Last modified:                                               *\r" .
+	\" ****************************************************************\\/".
+	\"\r" . defh
+	"\" *                                                             *\r" .
+	"\" * Maintainer:  MeiHui FAN  <mhfan@ustc.edu>                   *\r" .
+	"\" *              Laboratory of Structural Biology               *\r" .
+	"\" *              School of Life Science                         *\r" .
+	"\" *              Univ. of Sci.\\& Tech. of China (USTC)\t       *\r" .
+	"\" *              People's Republic of China (PRC)               *\r" .
+	"\" * No warranty, no liability; use this at your own risk!       *\r" .
+	"\" *                                                             *\r" .
+    if strridx(fn,"\.h") > 0
+	let defh="\r\r#endif\\/\\/" . defn . "\r"
+    endif
+    let rspace = "****************************"
+	execute "$g/$/s//" . defh . '\/' .
+	\ strpart(rspace, 0, 24-strlen(fn)/2) . " End Of File: " . fn . " " .
+	\ strpart(rspace, 0, 24-strlen(fn)/2) . "\\/\r\\/\\/ vim:sts=4:ts=8:"
+  endfun
+augroup END
+
+augroup Binary
+  au!
+  au BufReadPre   *.bin,*.exe	let &bin=1
+  au BufReadPost  *.bin,*.exe	if &bin | %!xxd
+  au BufReadPost  *.bin,*.exe	set ft=xxd | endif
+  au BufWritePre  *.bin,*.exe	if &bin | %!xxd -r
+  au BufWritePre  *.bin,*.exe	endif
+  au BufWritePost *.bin,*.exe	if &bin | %!xxd
+  au BufWritePost *.bin,*.exe	set nomod | endif
+augroup END
+
+" Transparent editing of gpg encrypted files.
+" Placed Public Domain by Wouter Hanegraaff <wouter@blub.net>
+" (asc support and sh -c"..." added by Osamu Aoki)
+augroup aencrypted
+    au!
+    " First make sure nothing is written to ~/.viminfo while editing
+    " an encrypted file.
+    autocmd BufReadPre,FileReadPre      *.asc set viminfo=
+    " We don't want a swap file, as it writes unencrypted data to disk
+    autocmd BufReadPre,FileReadPre      *.asc set noswapfile
+    " Switch to binary mode to read the encrypted file
+    autocmd BufReadPre,FileReadPre      *.asc set bin
+    autocmd BufReadPre,FileReadPre      *.asc let ch_save = &ch|set ch=2
+    autocmd BufReadPost,FileReadPost    *.asc '[,']!sh -c "gpg --decrypt 2> /dev/null"
+    " Switch to normal mode for editing
+    autocmd BufReadPost,FileReadPost    *.asc set nobin
+    autocmd BufReadPost,FileReadPost    *.asc let &ch = ch_save|unlet ch_save
+    autocmd BufReadPost,FileReadPost    *.asc execute ":doautocmd BufReadPost " . expand("%:r")
+
+    " Convert all text to encrypted text before writing
+    autocmd BufWritePre,FileWritePre    *.asc   '[,']!sh -c "gpg --default-recipient-self -ae 2>/dev/null"
+    " Undo the encryption so we are back in the normal text, directly
+    " after the file has been written.
+    autocmd BufWritePost,FileWritePost    *.asc   u
+augroup END
+
+augroup bencrypted
+    au!
+    " First make sure nothing is written to ~/.viminfo while editing
+    " an encrypted file.
+    autocmd BufReadPre,FileReadPre      *.gpg set viminfo=
+    " We don't want a swap file, as it writes unencrypted data to disk
+    autocmd BufReadPre,FileReadPre      *.gpg set noswapfile
+    " Switch to binary mode to read the encrypted file
+    autocmd BufReadPre,FileReadPre      *.gpg set bin
+    autocmd BufReadPre,FileReadPre      *.gpg let ch_save = &ch|set ch=2
+    autocmd BufReadPost,FileReadPost    *.gpg '[,']!sh -c "gpg --decrypt 2> /dev/null"
+    " Switch to normal mode for editing
+    autocmd BufReadPost,FileReadPost    *.gpg set nobin
+    autocmd BufReadPost,FileReadPost    *.gpg let &ch = ch_save|unlet ch_save
+    autocmd BufReadPost,FileReadPost    *.gpg execute ":doautocmd BufReadPost " . expand("%:r")
+
+    " Convert all text to encrypted text before writing
+    autocmd BufWritePre,FileWritePre    *.gpg   '[,']!sh -c "gpg --default-recipient-self -e 2>/dev/null"
+    " Undo the encryption so we are back in the normal text, directly
+    " after the file has been written.
+    autocmd BufWritePost,FileWritePost    *.gpg   u
+augroup END
+
+  "if 0			" This is disabled, because it changes the jumplist.
+			"   Can't use CTRL-O to go
+			" back to positions in previous files more than once.
+  autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$")
+			\ | exe "normal `\"" | endif
+			" When editing a file, always jump to
+			"  the last cursor position.
+  "endif
+"endif			" has ("autocmd")
+
+"let g:Perl_AuthorName      = "MeiHui FAN"
+"let g:Perl_AuthorRef       = ""
+"let g:Perl_Email           = "<mhfan@ustc.edu>"
+"let g:Perl_Company         = ""
+"let g:Perl_Project         = ""
+"let g:Perl_CopyrightHolder = ""
+"let g:Perl_Dictionary_File = "/usr/share/vim/vim62/wordlists/perl.list"
+"autocmd BufNewFile  *.\(pl\|pm\)         call Perl_CommentTemplates('header')
+
+let g:manpageview_winopen="reuse"
+
+"SpellAutoDisable
+"setlocal spell spelllang=en_us
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+	 	\ | wincmd p | diffthis
+
+""""""""""""""""""""""""""" End Of File: .vimrc """""""""""""""""""""""""""""
+" vim:sts=4:ts=8:
