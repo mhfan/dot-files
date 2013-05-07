@@ -1,0 +1,12 @@
+
+[usersubs]
+mhfan@hhcn.com = *
+zhangyi@hhcn.com = *
+
+[reposubs]
+*/u-boot*  = wanggang@hhcn.com
+*/linux-*  = wanggang@hhcn.com,yousheng@hhcn.com
+*/FFmpeg*  = jason.geng@hhcn.com,yousheng@hhcn.com,weiliu@hhcn.com
+*/MPlayer* = jason.geng@hhcn.com,yousheng@hhcn.com,weiliu@hhcn.com
+*/uClinux* = jason.geng@hhcn.com,yousheng@hhcn.com,wanggang@hhcn.com
+

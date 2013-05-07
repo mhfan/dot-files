@@ -1,0 +1,48 @@
+
+[ui]
+verbose  = True
+username = MeiHui FAN <mhfan@ustc.edu>
+ignore   = /home/mhfan/.hgignore
+
+[email]
+to   = mhfan@ustc.edu
+bcc  = mhfan@ustc.edu
+from = MeiHui FAN <mhfan@ustc.edu>
+#method = sendmail
+
+[smtp]
+port = 25
+host = mail.hhcn.com
+username = mhfan@hhcn.com
+password = 123456
+
+[extensions]
+#hgext.keyword = /home/mhfan/.hgkeyword.py
+#hgext.extdiff = colordiff
+hgext.notify =
+
+[hooks]
+#incoming.notify = python:hgext.notify.hook
+#outgoing.notify = python:hgext.notify.hook
+#changegroup.notify = python:hgext.notify.hook
+
+[notify]
+test = false
+config = /home/mhfan/.hgsubs
+sources = serve push pull bundle commit
+# If it doesn't start with \n it may confuse the email parser.
+# here's an example that makes the changeset template look more like hg log:
+template = Subject: {webroot|basename}: {desc|strip|firstline}\n\ndetails:   {baseurl}{webroot}\nchangeset: {rev}:{node|short}\nuser:      {author}\ndate:      {date|date}\ndescription:\n{desc}\n
+# max lines of diffs to include (0=none, -1=all)
+maxdiff = 256
+
+[web]
+style = gitweb
+author  = MeiHui FAN
+contact = MeiHui FAN <mhfan@ustc.edu>
+baseurl = ssh://hhcn@192.168.2.140/
+allow_archive = gz bz2
+
+[keyword]
+hhbf*.c =
+
