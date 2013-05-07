@@ -1,0 +1,55 @@
+
+[core]
+	editor = vim
+	pager = less -+FRSX -FRSXi
+
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	#cvsclone = !sh -c \"git cvsi -C .\"
+	cvsi = cvsimport -v -k -m -R -r git-cvs -o master
+	cvsup = !sh -c \"git stash && git cvsi && git rebase git-cvs/master && git stash pop\"
+	svnup = !sh -c \"git stash && git svn rebase && git stash pop\"
+	#up = !sh -c \"git stash && git pull --rebase && git stash pop\"
+	up = !sh -c \"git stash && git fetch && git rebase && git stash pop\"
+
+	logs  = log --stat --abbrev-commit --color-words --decorate
+	diffs = diff -p --stat --color-words --summary
+	shows = show --abbrev-commit
+	dcache = diff --cached
+	logl  = log --oneline
+	unstage = reset HEAD
+
+[merge]
+	stat = true
+	summary = true
+
+[rebase]
+	stat = true
+
+[branch]
+	autosetuprebase = always
+
+[pull]
+	rebase = false
+
+[push]
+	default = simple
+
+[color]
+	ui = true
+	diff = auto
+	grep = always
+	branch = auto
+	status = auto
+	interactive = auto
+
+[user]
+	email = mhfan@ustc.edu
+	name = MeiHui FAN
+
+#[url "gitosis@10.12.0.1:"]
+#	insteadOf = git://10.12.0.1/
+
