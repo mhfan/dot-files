@@ -1,0 +1,32 @@
+#!/usr/bin/kermit +
+
+COMMENT - C-Kermit initialization file for MeiHui FAN <mhfan@ustc.edu>
+
+assign _kermrc /etc/kermit/kermrc.full
+if exist \m(_kermrc) take \m(_kermrc)
+
+define sz !sz \%1 \%2 \%3 \%4 \%5 \%6 \%7 \%8 \%9 < \v(line) > \v(line)
+define rz !rz \%1 \%2 \%3 \%4 \%5 \%6 \%7 \%8 \%9 < \v(line) > \v(line)
+define sx !sx \%1 \%2 \%3 \%4 \%5 \%6 \%7 \%8 \%9 < \v(line) > \v(line)
+define rx !rx \%1 \%2 \%3 \%4 \%5 \%6 \%7 \%8 \%9 < \v(line) > \v(line)
+
+set file type binary
+set file name literal
+
+set rec  packet-length 1000
+set send packet-length 1000
+set output pacing 1
+set window-size 4
+robust	# XXX:
+
+#set serial 8n1
+set modem type none
+set carrier-watch off
+set flow-control none
+
+#delete /var/lock/LCK..ttyS0
+#set line /connect /dev/ttyS0
+#set speed 115200
+#conect
+
+# kermit -l /dev/ttyUSB0 -b 115200 -C connect
