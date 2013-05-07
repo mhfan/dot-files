@@ -1,0 +1,40 @@
+#!/bin/bash
+ ################################################################
+ # $ID: .i18n          Îå, 11  6ÔÂ 2010 21:46:07 +0800  mhfan $ #
+ #                                                              #
+ # Description:                                                 #
+ #                                                              #
+ # Maintainer:  ·¶ÃÀ»Ô(MeiHui FAN)  <mhfan@ustc.edu>            #
+ #                                                              #
+ # CopyLeft (c)  2010  M.H.Fan                                  #
+ #   All rights reserved.                                       #
+ #                                                              #
+ # This file is free software;                                  #
+ #   you are free to modify and/or redistribute it  	        #
+ #   under the terms of the GNU General Public Licence (GPL).   #
+ ################################################################
+
+### localization:
+LANG="C"
+LC_TIME="C"
+LC_PAPER="C"
+LC_COLLATE="C"
+LC_MESSAGES="C"
+LC_NAME="zh_CN.utf8"
+LC_CTYPE="zh_CN.utf8"
+LC_ADDRESS="zh_CN.utf8"
+LC_NUMERIC="zh_CN.utf8"
+LC_MONETARY="zh_CN.utf8"
+LC_TELEPHONE="zh_CN.utf8"
+LC_MEASUREMENT="zh_CN.utf8"
+LC_IDENTIFICATION="zh_CN.utf8"
+#LC_ALL=
+
+### XIM: moved to ~/.xinitrc
+#export XMODIFIERS="@im=fcitx"
+#export LANGUAGE="zh_CN.utf8:zh_CN:zh"
+
+export LANG LC_COLLATE LC_NAME LC_IDENTIFICATION LC_MEASUREMENT LC_TELEPHONE
+export LC_ADDRESS LC_PAPER LC_MEASUREMENT LC_MONETARY LC_CTYPE LC_NUMERIC
+
+# vim:sts=4:ts=8:
