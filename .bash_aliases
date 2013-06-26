@@ -38,7 +38,7 @@ alias rsync="rsync -ouavzHh --progress --stats"
 alias diff="colordiff -uwbBENarp"
 
 alias lynx='w3m'
-alias less='less -R'
+alias less='less -Ri'
 alias disp='display'
 #alias tig='tig --stat --abbrev-commit --color-words --decorate'
 
