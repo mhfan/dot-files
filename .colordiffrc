@@ -1,0 +1,14 @@
+# $Id: colordiffrc,v 1.2.2.3 2003/12/24 19:14:40 daveewart Exp $
+#
+# Set banner=no to suppress authorship info at top of colordiff output
+banner=no
+# 
+# available colours are: white, yellow, green, blue, cyan, red, magenta, black,
+#   darkwhite, darkyellow, darkgreen, darkblue, darkcyan, darkred,
+#   darkmagenta, darkblack
+#
+plain=white
+newtext=cyan
+oldtext=red
+diffstuff=yellow
+
