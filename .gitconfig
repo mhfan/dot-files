@@ -36,7 +36,7 @@
 	rebase = false
 
 [push]
-	default = simple
+	default = matching #simple
 
 [color]
 	ui = true
