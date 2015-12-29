@@ -32,9 +32,9 @@ export RLWRAP_HOME="~mhfan/.rlwrap/"
 export GL_BYPASS_UPDATE_HOOK=1
 
 pathadd /opt/android-ndk
-pathadd /opt/arm-sourcery/bin
-pathadd /opt/android-sdk/linux-x86/tools
-pathadd /opt/android-sdk/linux-x86/platform-tools
+#pathadd /opt/arm-sourcery/bin
+pathadd /opt/android-sdk-linux/tools
+pathadd /opt/android-sdk-linux/platform-tools
 #pathadd ~mhfan/devel/mhdroid/out/host/linux-x86/bin
 #pathadd ~mhfan/devel/mhdroid/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin
 export NDK_CCACHE=ccache USE_CCACHE=1 CCACHE_COMPRESS=1 #CCACHE_PREFIX=distcc
@@ -43,4 +43,4 @@ export NDK_CCACHE=ccache USE_CCACHE=1 CCACHE_COMPRESS=1 #CCACHE_PREFIX=distcc
 
 export RUBYLIB=$(for P in $(/usr/bin/ruby -e 'puts $:'); do echo -n $P:; done)
 
-QMAKESPEC=/home/mhfan/devel/am335x/tisdk/linux-devkit/arm-arago-linux-gnueabi/usr/share/qtopia/mkspecs/linux-g++;export QMAKESPEC; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - AB1C36D0-2B62-930A-B1CF-1B15CF69BE47 50959CCA-03C0-4BCD-5E85-3B3697E9139A
+#QMAKESPEC=/home/mhfan/devel/am335x/tisdk/linux-devkit/arm-arago-linux-gnueabi/usr/share/qtopia/mkspecs/linux-g++;export QMAKESPEC; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - AB1C36D0-2B62-930A-B1CF-1B15CF69BE47 50959CCA-03C0-4BCD-5E85-3B3697E9139A

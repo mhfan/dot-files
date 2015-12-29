@@ -23,6 +23,7 @@ robust	# XXX:
 set modem type none
 set carrier-watch off
 set flow-control none
+set terminal cr-display crlf
 
 #delete /var/lock/LCK..ttyS0
 #set line /connect /dev/ttyS0

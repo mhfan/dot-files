@@ -242,4 +242,4 @@ function iproj()
 }
 
 
-QMAKESPEC=/home/mhfan/devel/am335x/tisdk/linux-devkit/arm-arago-linux-gnueabi/usr/share/qtopia/mkspecs/linux-g++;export QMAKESPEC; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - AB1C36D0-2B62-930A-B1CF-1B15CF69BE47 50959CCA-03C0-4BCD-5E85-3B3697E9139A
+#QMAKESPEC=/home/mhfan/devel/am335x/tisdk/linux-devkit/arm-arago-linux-gnueabi/usr/share/qtopia/mkspecs/linux-g++;export QMAKESPEC; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - AB1C36D0-2B62-930A-B1CF-1B15CF69BE47 50959CCA-03C0-4BCD-5E85-3B3697E9139A

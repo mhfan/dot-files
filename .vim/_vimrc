@@ -18,7 +18,7 @@
  "   under the terms of the GNU General Public Licence.        "
  " No warranty, no liability; use this at your own risk!       "
  "                                                             "
- " Last modified: Sun, 12 Jan 2014 02:17:14 +0800      by mhfan #
+ " Last modified: Thu, 17 Apr 2014 11:06:37 +0800      by mhfan #
  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if exists("*Lcpp") | finish | endif
@@ -32,7 +32,7 @@ if exists("*Lcpp") | finish | endif
 "set nocompatible	" Use Vim settings, rather then Vi settings
 			" (much better!). This must be first, because it
 			" changes other options as a side effect!
-set fileencodings=utf-8,cp936,default
+"set fileencodings=utf-8,cp936,default
 "set encoding=prc	" chinese
 set viminfo=%,'64,\"128,:128,n~/.vim/viminfo
 "set viminfo='20,\"50	" (vi) read/write a .viminfo file,
