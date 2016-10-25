@@ -3,14 +3,14 @@
  "                                                             "
  " Description:                                                "
  "                                                             "
- " Author:      ·¶ÃÀ»Ô(MeiHui FAN) <mhfan@ustc.edu>            "
+ " Author:      èŒƒç¾è¾‰ (MeiHui FAN) <mhfan@ustc.edu>           "
  "                                                             "
- " Maintainer:  M.H.Fan  <mhfan@ustc.edu>                      "
+ " Maintainer:  M.H.Fan <mhfan@ustc.edu>                       "
  "              School of Life Science                         "
  "              Uni. of Sci. & Tec. of China (USTC) 	       "
  "              People's Republic of China (PRC)               "
  "                                                             "
- " CopyLeft (c) 2003 M.H.Fan                                   "
+ " Copyright (c) 2003 M.H.Fan                                  "
  "    All rights reserved.                                     "
  "                                                             "
  " This file is free software;                                 "
@@ -18,7 +18,7 @@
  "   under the terms of the GNU General Public Licence.        "
  " No warranty, no liability; use this at your own risk!       "
  "                                                             "
- " Last modified: Thu, 17 Apr 2014 11:06:37 +0800      by mhfan #
+ " Last modified: äº”, 21 10 2016 18:21:52 +0800       by mhfan #
  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if exists("*Lcpp") | finish | endif
@@ -50,7 +50,7 @@ set history=32
 "set columns=80		" (co)
 set comments=sr:/*,mb:*,ex:*/,b://,b:#,:%,b:XCOMM,n:>,fb:-,b:\" 
 set complete+=k,s
-"set iskeyword+=-           " ºÜ¶àÓïÑÔÖĞÒÑ¾­ÔÊĞíÊ¹ÓÃÖĞ»®Ïß×÷±äÁ¿ÃûÁË¡£
+"set iskeyword+=-           " ÂºÃœÂ¶Ã Ã“Ã¯Ã‘Ã”Ã–ÃÃ’Ã‘Â¾Â­Ã”ÃŠÃÃ­ÃŠÂ¹Ã“ÃƒÃ–ÃÂ»Â®ÃÃŸÃ—Ã·Â±Ã¤ÃÂ¿ÃƒÃ»ÃÃ‹Â¡Â£
 set nobackup		" Some option desactivate by default.
 set hlsearch		" (hls)
 set incsearch
@@ -147,17 +147,17 @@ abbr	_box_	    Addr:  Room 4-438, P.O. Box 4
 abbr	_tel_	    Phone: (+86-)0551-3663380	    
 abbr	_qq_	    OICQ: 10181245
 abbr	_msn_	    MSN:  gnufan@hotmail.com
-abbr	zhhome	    <C-R>="    µç»°£º(+86-)599-3591011\r" .
-			\ "µØÖ·£º¸£½¨Ê¡½¨ê±ÊĞ¶«·åÕò»·ÕòÂ·114ºÅ (353121)"<CR>
+abbr	zhhome	    <C-R>="    ÂµÃ§Â»Â°Â£Âº(+86-)599-3591011\r" .
+			\ "ÂµÃ˜Ã–Â·Â£ÂºÂ¸Â£Â½Â¨ÃŠÂ¡Â½Â¨ÃªÂ±ÃŠÃÂ¶Â«Â·Ã¥Ã•Ã²Â»Â·Ã•Ã²Ã‚Â·114ÂºÃ… (353121)"<CR>
 abbr	enhome	    <C-R>="    Phone:  (+86-)599-3591011\r" .
 			\ "Addr:   Road Huanzhen, P.O. Box 114\r" .
 			\ "        Dongfeng, Jian'ou, Fujian\r" .
 			\ "        353121, P.R.China"<CR> 
-abbr	zhaddr	    <C-R>="    µç»°£º  0551-3663380\r" .
+abbr	zhaddr	    <C-R>="    ÂµÃ§Â»Â°Â£Âº  0551-3663380\r" .
 			\ "E-mail: <mhfan@ustc.edu>\r" .
-			\ "µØÖ·£º  °²»ÕÊ¡ºÏ·ÊÊĞËÄºÅĞÅÏä\r" .
-			\ "        ÖĞ¹ú¿ÆÑ§¼¼Êõ´óÑ§" .
-			\ "Î÷Çø4ºÅÂ¥438ÊÒ (230027)"<CR>
+			\ "ÂµÃ˜Ã–Â·Â£Âº  Â°Â²Â»Ã•ÃŠÂ¡ÂºÃÂ·ÃŠÃŠÃÃ‹Ã„ÂºÃ…ÃÃ…ÃÃ¤\r" .
+			\ "        Ã–ÃÂ¹ÃºÂ¿Ã†Ã‘Â§Â¼Â¼ÃŠÃµÂ´Ã³Ã‘Â§" .
+			\ "ÃÃ·Ã‡Ã¸4ÂºÃ…Ã‚Â¥438ÃŠÃ’ (230027)"<CR>
 abbr	enaddr	    <C-R>="    Phone:  (86-)551-3663380\r" .
 			\ "E-mail: <mhfan@ustc.edu>\r" .
 			\ "Addr:   Room 4-438, P.O. Box 4\r" .
@@ -168,16 +168,17 @@ abbr	enaddr	    <C-R>="    Phone:  (86-)551-3663380\r" .
 
 abbr	_myid_	    noclouds
 abbr	_user_	    <C-R>=$USER<CR>
-abbr	_fmh_	    ·¶ÃÀ»Ô 
+abbr	_fmh_	    èŒƒç¾è¾‰
 abbr	_mhfan_	    MeiHui FAN
 abbr	_email_	    mhfan@ustc.edu
-abbr	_auth_	    ·¶ÃÀ»Ô(MeiHui FAN)  <mhfan@ustc.edu>
-abbr	_copy_	    CopyLeft (C) <C-R>=strftime("%Y")<CR>  M.H.Fan
+abbr	_auth_	    èŒƒç¾è¾‰ (MeiHui FAN) <mhfan@ustc.edu>
+abbr	_copy_	    Copyright (c) <C-R>=strftime("%Y")<CR> M.H.Fan
 abbr	_create_    Created by mhfan
 abbr	_change_    Changed by mhfan
 abbr	_add_	    Added by mhfan
 abbr	_modify_    Modified by mhfan
 abbr	_hhmod_	    Modified by HHTech
+abbr	_huami_	    Modified by HUAMI
 
 abbr	_file_	    <C-R>%
 abbr	_date_	    <C-R>=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>
@@ -254,9 +255,9 @@ endf
 	\" -                                                              -\r" .
 	\" - Description:                                                 -\r" .
 	\" -                                                              -\r" .
-	\" - Maintainer:  ·¶ÃÀ»Ô(MeiHui FAN)  <mhfan@ustc.edu>            -\r" .
+	\" - Maintainer:  èŒƒç¾è¾‰ (MeiHui FAN) <mhfan@ustc.edu>            -\r" .
 	\" -                                                              -\r" .
-	\" - CopyLeft (c)". strftime("  %Y  ") ."M.H.Fan    ". rspace . " -\r" .
+	\" - Copyright (c)". strftime(" %Y ") ."M.H.Fan     ". rspace . " -\r" .
 	\" -   All rights reserved.                                       -\r" .
 	\" -                                                              -\r" .
 	\" - This file is free software;                                  -\r" .
@@ -265,11 +266,11 @@ endf
 	\" -                                                              -\r" .
 	\" - Last modified:                                               -\r" .
 	\" ----------------------------------------------------------------}\r"
-	"\ - Copyright (C)". strftime("  %Y  ") ."HHTech    ". rspace . " -\r" .
+	"\ - Copyright (c)". strftime(" %Y ") ."HHTech      ". rspace . " -\r" .
 	"\ -   www.hhcn.com, www.hhcn.org                                 -\r" .
 	"substitute("", "#", "*", "g")
 	"\ -                                                              -\r" .
-	"\ - Maintainer:  MeiHui FAN  <mhfan@ustc.edu>                    -\r" .
+	"\ - Maintainer:  MeiHui FAN <mhfan@ustc.edu>                     -\r" .
 	"\ -              Laboratory of Structural Biology                -\r" .
 	"\ -              School of Life Science                          -\r" .
 	"\ -              Univ. of Sci.\\& Tech. of China (USTC)\t        -\r" .
@@ -297,9 +298,9 @@ endf
 	\" #                                                              #\r" .
 	\" # Description:                                                 #\r" .
 	\" #                                                              #\r" .
-	\" # Maintainer:  ·¶ÃÀ»Ô(MeiHui FAN)  <mhfan@ustc.edu>            #\r" .
+	\" # Maintainer:  èŒƒç¾è¾‰ (MeiHui FAN) <mhfan@ustc.edu>            #\r" .
 	\" #                                                              #\r" .
-	\" # CopyLeft (c)". strftime("  %Y  ") ."M.H.Fan    ". rspace . " #\r" .
+	\" # Copyright (c)". strftime(" %Y ") ."M.H.Fan     ". rspace . " #\r" .
 	\" #   All rights reserved.                                       #\r" .
 	\" #                                                              #\r" .
 	\" # This file is free software;                                  #\r" .
@@ -310,7 +311,7 @@ endf
 	\" ################################################################\r\r"
 	"substitute("", "#", "*", "g")
 	"\" #                                                             #\r" .
-	"\" # Maintainer:  MeiHui FAN  <mhfan@ustc.edu>                   #\r" .
+	"\" # Maintainer:  MeiHui FAN <mhfan@ustc.edu>                    #\r" .
 	"\" #              Laboratory of Structural Biology               #\r" .
 	"\" #              School of Life Science                         #\r" .
 	"\" #              Univ. of Sci.\\& Tech. of China (USTC)\t       #\r" .
@@ -512,9 +513,9 @@ augroup cprog		" Set some sensible defaults for editing C-files
 	\" *                                                              *\r" .
 	\" * Description:                                                 *\r" .
 	\" *                                                              *\r" .
-	\" * Maintainer:  ·¶ÃÀ»Ô(MeiHui FAN)  <mhfan@ustc.edu>            *\r" .
+	\" * Maintainer:  èŒƒç¾è¾‰ (MeiHui FAN) <mhfan@ustc.edu>            *\r" .
 	\" *                                                              *\r" .
-	\" * CopyLeft (c)". strftime("  %Y  ") ."M.H.Fan    ". rspace . " *\r" .
+	\" * Copyright (c)". strftime(" %Y ") ."M.H.Fan     ". rspace . " *\r" .
 	\" *   All rights reserved.                                       *\r" .
 	\" *                                                              *\r" .
 	\" * This file is free software;                                  *\r" .
