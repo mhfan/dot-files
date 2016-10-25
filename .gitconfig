@@ -47,9 +47,10 @@
 	interactive = auto
 
 [user]
-	email = mhfan@smartdevices.com.cn
+	#email = mhfan@smartdevices.com.cn
 	#email = meihui.fan@gmail.com
-	#email = mhfan@ustc.edu
+	#email = mhfan@huami.com
+	email = mhfan@ustc.edu
 	name = MeiHui FAN
 
 #[url "gitosis@10.12.0.1:"]
