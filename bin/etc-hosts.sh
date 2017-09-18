@@ -13,7 +13,7 @@
  #   you are free to modify and/or redistribute it  	        #
  #   under the terms of the GNU General Public Licence (GPL).   #
  #                                                              #
- # Last modified: 一, 18  9 2017 17:53:57 +0800       by mhfan #
+ # Last modified: 一, 18  9 2017 18:14:50 +0800       by mhfan #
  ################################################################
 
 # https://github.com/sy618/hosts
@@ -26,7 +26,9 @@
 URL=https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts
 URL=https://raw.githubusercontent.com/sy618/hosts/master/FQ
 
-# /tmp/hosts && mv /tmp/hosts
-curl $URL -o /etc/hosts
+curl -o /tmp/hosts $URL && \
+if diff /tmp/hosts /etc/hosts > /dev/null; then rm /tmp/hosts; else
+    mv  /tmp/hosts /etc/hosts
+fi
 
  # vim:sts=4:ts=8:
