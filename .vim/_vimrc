@@ -10,15 +10,14 @@
  "              Uni. of Sci. & Tec. of China (USTC) 	       "
  "              People's Republic of China (PRC)               "
  "                                                             "
- " Copyright (c) 2003 M.H.Fan                                  "
- "    All rights reserved.                                     "
+ " Copyright (c) 2003 M.H.Fan, All Rights Reserved.            "
  "                                                             "
  " This file is free software;                                 "
  "   you are free to modify and/or redistribute it    	       "
  "   under the terms of the GNU General Public Licence.        "
  " No warranty, no liability; use this at your own risk!       "
  "                                                             "
- " Last modified: 五, 21 10 2016 18:21:52 +0800       by mhfan #
+ " Last modified: 一, 14 11 2016 10:04:16 +0800       by mhfan #
  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if exists("*Lcpp") | finish | endif
@@ -172,7 +171,8 @@ abbr	_fmh_	    范美辉
 abbr	_mhfan_	    MeiHui FAN
 abbr	_email_	    mhfan@ustc.edu
 abbr	_auth_	    范美辉 (MeiHui FAN) <mhfan@ustc.edu>
-abbr	_copy_	    Copyright (c) <C-R>=strftime("%Y")<CR> M.H.Fan
+abbr	_copy_	    Copyright (c) <C-R>=strftime("%Y")<CR> M.H.Fan,
+		    \ All Right Reserved.
 abbr	_create_    Created by mhfan
 abbr	_change_    Changed by mhfan
 abbr	_add_	    Added by mhfan
@@ -185,7 +185,7 @@ abbr	_date_	    <C-R>=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>
 
 cab	unix	    set ff=unix
 iab	RCHG	    <C-R>=strftime("* %a, %d %b %Y %H:%M:%S %z 
-		    \  MeiHui FAN  <mhfan@ustc.edu> \ \n- \n- ")<CR>
+		    \ MeiHui FAN <mhfan@ustc.edu>\n- \n- ")<CR>
 
 " To be able to use another command anyway, use the ":execute" command.
 " Example (append the output of "ls" and jump to the first line):
@@ -237,6 +237,8 @@ endf
   autocmd BufNewFile *.scm	    call Lsh("\\/home\\/mhfan\\/bin\\/scsh"
 	\ . " !#") | exec "2,26g/#/s//;/g" | exec "$g/#/s//;/g"
   autocmd BufNewFile *.pl	    call Lsh("\\/usr\\/bin\\/perl -w")
+  autocmd BufNewFile Makefile	    call Lmake()
+  autocmd BufNewFile *.mk	    call Lmake()
   "autocmd BufNewFile *.sgml	    0r $HOME/doc/sgml/skel.sgml
   "autocmd BufNewFile *.vhd,*.vhdl   0r $HOME/doc/vhdl/skel.vhdl
   "autocmd BufNewFile *.tex	    0r $HOME/doc/comp/lang/tex/skel.tex
@@ -258,7 +260,7 @@ endf
 	\" - Maintainer:  范美辉 (MeiHui FAN) <mhfan@ustc.edu>            -\r" .
 	\" -                                                              -\r" .
 	\" - Copyright (c)". strftime(" %Y ") ."M.H.Fan     ". rspace . " -\r" .
-	\" -   All rights reserved.                                       -\r" .
+	\" -   All Rights Reserved.                                       -\r" .
 	\" -                                                              -\r" .
 	\" - This file is free software;                                  -\r" .
 	\" -   you are free to modify and\\/or redistribute it  \t        -\r" .
@@ -301,7 +303,7 @@ endf
 	\" # Maintainer:  范美辉 (MeiHui FAN) <mhfan@ustc.edu>            #\r" .
 	\" #                                                              #\r" .
 	\" # Copyright (c)". strftime(" %Y ") ."M.H.Fan     ". rspace . " #\r" .
-	\" #   All rights reserved.                                       #\r" .
+	\" #   All Rights Reserved.                                       #\r" .
 	\" #                                                              #\r" .
 	\" # This file is free software;                                  #\r" .
 	\" #   you are free to modify and\\/or redistribute it  \t        #\r" .
@@ -325,6 +327,9 @@ endf
   endfun
   func Lpl()
       call Lsh("\\/usr\\/bin\\/perl -w")
+  endfun
+  func Lmake()
+      call Lsh("\\/usr\\/bin\\/env make -j4 -f")
   endfun
 
   autocmd BufWritePre,FileWritePre *	call LastMod()
@@ -516,7 +521,7 @@ augroup cprog		" Set some sensible defaults for editing C-files
 	\" * Maintainer:  范美辉 (MeiHui FAN) <mhfan@ustc.edu>            *\r" .
 	\" *                                                              *\r" .
 	\" * Copyright (c)". strftime(" %Y ") ."M.H.Fan     ". rspace . " *\r" .
-	\" *   All rights reserved.                                       *\r" .
+	\" *   All Rights Reserved.                                       *\r" .
 	\" *                                                              *\r" .
 	\" * This file is free software;                                  *\r" .
 	\' *   you are free to modify and\/or redistribute it   \t        *\r' .
